@@ -1,0 +1,13 @@
+#cloud-config
+package_upgrade: true
+packages:
+  - apache2
+write_files:
+  - owner: pramod:pramod
+    path: /var/www/html/index.html
+    content: '<html>
+              <title>Official website</title>
+              <body>
+              <h1>Welcome to the Home Page. This is VM1</h1>
+              </body>
+              </html>'
