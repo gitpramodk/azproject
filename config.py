@@ -1,6 +1,5 @@
 [DEFAULT]
 # Account Connection String 
-connect_str = DefaultEndpointsProtocol=https;AccountName=quickstartmarch22;AccountKey=Q3BoDbUnZqjaeV1T8TmekT4GTtsj4hmop0eIJXbIqhjoOWl3YqvxK+kMF8ddY8FwBh1HlovvF+zc+AStN26X6A==;EndpointSuffix=core.windows.net
+connect_str = DefaultEndpointsProtocol=https;AccountName=webappstore22;AccountKey=9NewxG+SBHu3udgHT/cySBM5zCjhYn6bfvuU+Ydc2KHI2w2LN0uvUq7jwNUvOFBpExr2bI4Mb+gtEy26peK0+A==;EndpointSuffix=core.windows.net
 # Container Name
 container_name = upload
-
