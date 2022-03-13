@@ -1,0 +1,89 @@
+East US
+---------------
+Resource group:
+rg-web-eastus
+
+VM1 - Apache2 Home Page
+#cloud-config
+package_upgrade: true
+packages:
+  - apache2
+write_files:
+  - owner: pramod:pramod
+    path: /var/www/html/index.html
+    content: '<html>
+              <title>Official website</title>
+              <body>
+              <h1>Welcome to the Home Page. This is VM1</h1>
+              </body>
+              </html>'
+VM2 - Python - TODO
+
+----------------------
+West US
+---------------
+Resource group:
+
+rg-web-west-us
+
+VM1 - Apache2 Home Page
+#cloud-config
+package_upgrade: true
+packages:
+  - apache2
+write_files:
+  - owner: pramod:pramod
+    path: /var/www/html/index.html
+    content: '<html>
+              <title>Official website</title>
+              <body>
+              <h1>Welcome to the Home Page. This is VM2</h1>
+              </body>
+              </html>'
+VM2 - Python - 
+>>>
+#!/bin/sh
+sudo ufw allow 5000/tcp
+sudo apt-get update -y
+sudo apt-get install -y python3
+sudo apt-get install -y python3-pip 
+pip3 install azure-core
+pip3 install azure-storage-blob
+pip3 install configparser
+pip3 install flask
+<<<
+
+Storage : webappstore22
+Connection String :
+DefaultEndpointsProtocol=https;AccountName=webappstore22;AccountKey=9NewxG+SBHu3udgHT/cySBM5zCjhYn6bfvuU+Ydc2KHI2w2LN0uvUq7jwNUvOFBpExr2bI4Mb+gtEy26peK0+A==;EndpointSuffix=core.windows.net
+
+Access Key:
+9NewxG+SBHu3udgHT/cySBM5zCjhYn6bfvuU+Ydc2KHI2w2LN0uvUq7jwNUvOFBpExr2bI4Mb+gtEy26peK0+A==
+-------------------------
+File config.py:
+[DEFAULT]
+# Account Connection String 
+connect_str = DefaultEndpointsProtocol=https;AccountName=webappstore22;AccountKey=9NewxG+SBHu3udgHT/cySBM5zCjhYn6bfvuU+Ydc2KHI2w2LN0uvUq7jwNUvOFBpExr2bI4Mb+gtEy26peK0+A==;EndpointSuffix=core.windows.net
+# Container Name
+container_name = upload
+-------------------------
+File: app.py
+
+tempates:uplaod.html
+
+-------------------------
+
+
+
+root@VM2:/home/pramod/myproject# python3 app.py
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.16.1.4:80/ (Press CTRL+C to quit)
+
+
+
